@@ -25,7 +25,7 @@ public class RoomController {
     private UsersInRoomService usersInRoomService;
 
     @PostMapping
-    public void saveRoom(@RequestParam Room room) {
+    public void saveRoom(@ModelAttribute Room room) {
         roomService.createRoom(room);
     }
 
