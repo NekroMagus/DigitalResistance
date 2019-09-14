@@ -1,6 +1,7 @@
 package com.digital.resistance.controller;
 
 import com.digital.resistance.domain.Room;
+import com.digital.resistance.domain.User;
 import com.digital.resistance.service.RoomService;
 import com.digital.resistance.service.UserService;
 import com.digital.resistance.service.UsersInRoomService;
@@ -9,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/createroom")
@@ -30,9 +34,16 @@ public class RoomController {
     }
 
     @GetMapping
-    public Room getRoom() {
-        Room room = new Room(1,2,"as");
-        return room;
+    public List<Room> getRoom() {
+        List<Room> roomList = roomService.findAllRooms();
+        return roomList;
     }
 
+
+    @GetMapping("/create")
+    public String get() {
+        User user = new User("hkk","cj");
+        userService.addUser(user);
+        return "index";
+    }
 }

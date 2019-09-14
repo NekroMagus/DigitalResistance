@@ -6,6 +6,8 @@ import com.digital.resistance.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoomServiceImpl implements RoomService {
 
@@ -21,5 +23,10 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Room findRoomById(long id) {
         return roomDao.findById(id).get();
+    }
+
+    @Override
+    public List<Room> findAllRooms() {
+        return roomDao.findAll();
     }
 }
