@@ -1,36 +1,36 @@
 CREATE TABLE commodity
 (
-  id       BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  id       SERIAL PRIMARY KEY ,
   sum      INT,
-  quantity double,
-  price    int,
-  name     varchar(255),
-  busy     int
+  quantity DECIMAL,
+  price    INTEGER,
+  name     VARCHAR(255),
+  busy     INTEGER
 );
 
 CREATE TABLE users
 (
-  user_id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  user_id SERIAL PRIMARY KEY ,
   hashtag VARCHAR(255),
   phone   VARCHAR(18) UNIQUE
 );
 
 CREATE TABLE room
 (
-  room_id     BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  count_users INT,
-  count_price INT,
+  room_id     SERIAL PRIMARY KEY ,
+  count_users INTEGER,
+  count_price INTEGER,
   name        VARCHAR(255)
 );
 
 
 CREATE TABLE users_in_room
 (
-  room_id BIGINT NOT NULL,
-  user_id BIGINT NOT NULL,
-  price   INT,
-  FOREIGN KEY (user_id) REFERENCES users (user_id),
-  FOREIGN KEY (room_id) REFERENCES room (room_id)
+  room_id BIGINT REFERENCES room(room_id),
+  user_id BIGINT REFERENCES users (user_id),
+  price   INTEGER
 );
 
 
+INSERT INTO users values (1,'hash','+7');
+INSERT INTO room values (1,5,1500,'name');
