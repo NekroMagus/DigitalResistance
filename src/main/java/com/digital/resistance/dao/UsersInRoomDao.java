@@ -15,4 +15,6 @@ public interface UsersInRoomDao extends JpaRepository<UsersInRoom, Long> {
     UsersInRoom findUsersInRoomByUserusAndRoomus(Long user_id, Long room_id);
 
     List<Long> findAllRoomusByUserus(Long user_id);
+
+    List<Long> findAllUserusByRoomus(Long room_id);
 }

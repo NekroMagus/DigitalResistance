@@ -1,7 +1,6 @@
 package com.digital.resistance.domain;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "room")

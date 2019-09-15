@@ -1,9 +1,6 @@
 package com.digital.resistance.domain;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -66,6 +63,14 @@ public class User {
         this.phone = phone;
     }
 
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     @Override
     public boolean equals(Object o) {

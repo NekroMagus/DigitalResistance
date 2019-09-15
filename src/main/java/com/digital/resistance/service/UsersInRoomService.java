@@ -15,4 +15,6 @@ public interface UsersInRoomService {
     UsersInRoom findUsersInRoomByUserIdAndRoomId(Long user_id, Long room_id);
 
     List<Long> findAllRoomsIdByUserId(Long user_id);
+
+    List<Long> findAllUserIdByRoomId(Long room_id);
 }

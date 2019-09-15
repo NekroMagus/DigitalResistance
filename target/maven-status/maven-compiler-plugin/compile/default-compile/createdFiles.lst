@@ -2,7 +2,6 @@ com\digital\resistance\dao\UsersInRoomDao.class
 com\digital\resistance\domain\Room.class
 com\digital\resistance\controller\RoomController.class
 com\digital\resistance\service\impl\UsersInRoomServiceImpl.class
-com\digital\resistance\dao\UsersInRoomDaoImpl.class
 com\digital\resistance\domain\Commodity.class
 com\digital\resistance\config\RESTConfiguration.class
 com\digital\resistance\service\impl\CommodityServiceImpl.class

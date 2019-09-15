@@ -38,4 +38,9 @@ public class UsersInRoomServiceImpl implements UsersInRoomService {
     public List<Long> findAllRoomsIdByUserId(Long user_id) {
         return usersInRoomDao.findAllRoomusByUserus(user_id);
     }
+
+    @Override
+    public List<Long> findAllUserIdByRoomId(Long room_id) {
+        return usersInRoomDao.findAllUserusByRoomus(room_id);
+    }
 }
