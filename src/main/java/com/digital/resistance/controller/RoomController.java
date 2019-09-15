@@ -127,4 +127,10 @@ public class RoomController {
         UsersInRoom usersInRoom = usersInRoomService.findUsersInRoomByUserIdAndRoomId(user.getUser_id(), room_id);
         usersInRoom.setPrice(price);
     }
+
+    @GetMapping("/gethash")
+    public String getHash(@RequestParam String phone) {
+        User user = userService.findUserByPhone(phone);
+        return user.getHashtag();
+    }
 }
