@@ -8,9 +8,7 @@ import com.digital.resistance.service.UsersInRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-
 @RestController
 @RequestMapping("/createroom")
 public class RoomController {
@@ -25,8 +23,10 @@ public class RoomController {
     private UsersInRoomService usersInRoomService;
 
     @PostMapping
-    public void saveRoom(@ModelAttribute Room room) {
+
+    public long saveRoom(@ModelAttribute Room room) {
         roomService.createRoom(room);
+        return room.getRoom_id();
     }
 
     @GetMapping

@@ -14,7 +14,6 @@ public class RoomServiceImpl implements RoomService {
     @Autowired
     private RoomDao roomDao;
 
-
     @Override
     public void createRoom(Room room) {
         roomDao.save(room);
