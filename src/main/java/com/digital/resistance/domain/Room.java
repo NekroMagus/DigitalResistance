@@ -8,7 +8,7 @@ import java.util.List;
 public class Room {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "room_id")
     private long room_id;
 
@@ -21,10 +21,15 @@ public class Room {
     @Column(name = "name")
     private String name;
 
-    @ElementCollection
+    @Column(name = "equivalently")
+    private boolean equivalently;
+
+//    @ElementCollection
+//    @Embedded
 //    @JoinTable(name = "users",
 //    joinColumns = @JoinColumn(name = "user_id"))
-    private List<UsersInRoom> usersInRoomList;
+//    @Transient
+//    private List<UsersInRoom> usersInRoomList;
 
     public Room() {
     }
@@ -68,12 +73,32 @@ public class Room {
         this.name = name;
     }
 
-
-    public List<UsersInRoom> getUsersInRoomList() {
-        return usersInRoomList;
+    public boolean isEquivalently() {
+        return equivalently;
     }
 
-    public void setUsersInRoomList(List<UsersInRoom> usersInRoomList) {
-        this.usersInRoomList = usersInRoomList;
+    public void setEquivalently(boolean equivalently) {
+        this.equivalently = equivalently;
+    }
+
+    //
+//    public List<UsersInRoom> getUsersInRoomList() {
+//        return usersInRoomList;
+//    }
+//
+//    public void setUsersInRoomList(List<UsersInRoom> usersInRoomList) {
+//        this.usersInRoomList = usersInRoomList;
+//    }
+
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "room_id=" + room_id +
+                ", count_users=" + count_users +
+                ", count_price=" + count_price +
+                ", name='" + name + '\'' +
+                ", equivalently=" + equivalently +
+                '}';
     }
 }

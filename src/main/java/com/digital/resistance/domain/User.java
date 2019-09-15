@@ -11,7 +11,7 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private long user_id;
 
@@ -21,10 +21,12 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @ElementCollection
+//    @ElementCollection
+//    @Embedded
 //    @JoinTable(name = "room",
 //            joinColumns = @JoinColumn(name = "room_id"))
-            List<UsersInRoom> usersInRoomList;
+    @Column(name ="username")
+    private String username;
 
     public User() {
     }
@@ -32,6 +34,12 @@ public class User {
     public User(String hashtag, String phone) {
         this.hashtag = hashtag;
         this.phone = phone;
+    }
+
+    public User(String hashtag, String phone, String username) {
+        this.hashtag = hashtag;
+        this.phone = phone;
+        this.username = username;
     }
 
     public long getUser_id() {
@@ -58,13 +66,6 @@ public class User {
         this.phone = phone;
     }
 
-    public List<UsersInRoom> getUsersInRoomList() {
-        return usersInRoomList;
-    }
-
-    public void setUsersInRoomList(List<UsersInRoom> usersInRoomList) {
-        this.usersInRoomList = usersInRoomList;
-    }
 
     @Override
     public boolean equals(Object o) {

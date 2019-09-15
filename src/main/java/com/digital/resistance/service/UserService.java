@@ -10,4 +10,5 @@ public interface UserService {
 
     User findUserById(long id);
 
+    User findUserByPhone(String phone);
 }

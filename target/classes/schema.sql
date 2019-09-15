@@ -23,14 +23,18 @@ CREATE TABLE room
   name        VARCHAR(255)
 );
 
-
 CREATE TABLE users_in_room
 (
-  room_id BIGINT REFERENCES room(room_id),
-  user_id BIGINT REFERENCES users (user_id),
-  price   INTEGER
+  id  SERIAL PRIMARY KEY,
+  user_id BIGINT,
+  room_id BIGINT,
+  price INTEGER,
+  isadmin boolean,
+  equivalently boolean
 );
 
 
 INSERT INTO users values (1,'hash','+7');
 INSERT INTO room values (1,5,1500,'name');
+
+drop table users_in_room;
